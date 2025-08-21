@@ -1,55 +1,29 @@
-// import Logo from "@/assets/images/ride.logo.png";
-import { Button } from "@/components/ui/button";
+// import Logo from "@/components/navbar-components/logo"
+import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu";
+} from "@/components/ui/navigation-menu"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { ModeToggle } from "./ModeToggler";
-import { Link } from "react-router";
-import {
-  authApi,
-  useLogoutMutation,
-  useUserInfoQuery,
-} from "@/redux/features/auth/auth.api";
-import { useAppDispatch } from "@/redux/hook";
-import { role } from "@/constants/rode";
-import React from "react";
-import { toast } from "sonner";
-
+} from "@/components/ui/popover"
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
-  { href: "/", label: "Home", role: "PUBLIC" },
-  { href: "/about", label: "About", role: "PUBLIC" },
-  { href: "/tours", label: "Tours", role: "PUBLIC" },
-  { href: "/admin", label: "Dashboard", role: role.admin },
-  { href: "/admin", label: "Dashboard", role: role.superAdmin },
-  { href: "/user", label: "Dashboard", role: role.user },
-];
+  { href: "#", label: "Home", active: true },
+  { href: "#", label: "Features" },
+  { href: "#", label: "Pricing" },
+  { href: "#", label: "About" },
+]
 
-export default function Navbar() {
-  const { data } = useUserInfoQuery(undefined);
-  const [logout] = useLogoutMutation();
-  const dispatch = useAppDispatch();
-
-  console.log(data?.data?.email, 'email');
-
-  const handleLogout = async () => {
-    await logout(undefined);
-     toast.success("User Logout successfully");
-    dispatch(authApi.util.resetApiState());
-  };
-
+export default function Component() {
   return (
-    <header className="border-b">
-      <div className="container mx-auto px-4 flex h-16 items-center justify-between gap-4">
+    <header className="border-b px-4 md:px-6">
+      <div className="flex h-16 items-center justify-between gap-4">
         {/* Left side */}
         <div className="flex items-center gap-2">
           {/* Mobile menu trigger */}
@@ -92,8 +66,12 @@ export default function Navbar() {
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
                     <NavigationMenuItem key={index} className="w-full">
-                      <NavigationMenuLink asChild className="py-1.5">
-                        <Link to={link.href}>{link.label} </Link>
+                      <NavigationMenuLink
+                        href={link.href}
+                        className="py-1.5"
+                        active={link.active}
+                      >
+                        {link.label}
                       </NavigationMenuLink>
                     </NavigationMenuItem>
                   ))}
@@ -110,28 +88,15 @@ export default function Navbar() {
             <NavigationMenu className="max-md:hidden">
               <NavigationMenuList className="gap-2">
                 {navigationLinks.map((link, index) => (
-                  <React.Fragment key={index}>
-                    {link.role === "PUBLIC" && (
-                      <NavigationMenuItem>
-                        <NavigationMenuLink
-                          asChild
-                          className="text-muted-foreground hover:text-primary py-1.5 font-medium"
-                        >
-                          <Link to={link.href}>{link.label}</Link>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    )}
-                    {link.role === data?.data?.role && (
-                      <NavigationMenuItem>
-                        <NavigationMenuLink
-                          asChild
-                          className="text-muted-foreground hover:text-primary py-1.5 font-medium"
-                        >
-                          <Link to={link.href}>{link.label}</Link>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    )}
-                  </React.Fragment>
+                  <NavigationMenuItem key={index}>
+                    <NavigationMenuLink
+                      active={link.active}
+                      href={link.href}
+                      className="text-muted-foreground hover:text-primary py-1.5 font-medium"
+                    >
+                      {link.label}
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
@@ -139,23 +104,14 @@ export default function Navbar() {
         </div>
         {/* Right side */}
         <div className="flex items-center gap-2">
-          <ModeToggle />
-          {data?.data?.email && (
-            <Button
-              onClick={handleLogout}
-              variant="outline"
-              className="text-sm text-red-500 border-red-500"
-            >
-              Logout
-            </Button>
-          )}
-          {!data?.data?.email && (
-            <Button asChild className="text-sm">
-              <Link to="/login">Login</Link>
-            </Button>
-          )}
+          <Button asChild variant="ghost" size="sm" className="text-sm">
+            <a href="#">Sign In</a>
+          </Button>
+          <Button asChild size="sm" className="text-sm">
+            <a href="#">Get Started</a>
+          </Button>
         </div>
       </div>
     </header>
-  );
+  )
 }
