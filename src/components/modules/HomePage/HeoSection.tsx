@@ -1,43 +1,38 @@
-
+import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
-
-
-  // const divisionOption = divisionData?.map(
-  //   (item: { _id: string; name: string }) => ({
-  //     label: item.name,
-  //     value: item._id,
-  //   })
-  // );
-
   return (
-    <section className="relative overflow-hidden py-32 min-h-screen">
-      <div className="absolute inset-x-0 top-0 flex h-full w-full items-center justify-center opacity-100">
+    <section className="relative overflow-hidden py-20 md:py-28 lg:py-32 min-h-screen flex items-center">
+      {/* Background */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-100">
         <img
           alt="background"
-          src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/square-alt-grid.svg"
-          className="[mask-image:radial-gradient(75%_75%_at_center,white,transparent)] opacity-90"
+          src="https://pathao.com/wp-content/uploads/2018/12/03-car.png"
+          className="w-full h-full object-cover [mask-image:radial-gradient(800%_200%_at_center,white,transparent)] opacity-90"
         />
       </div>
-      <div className="relative z-10 container mx-auto">
-        <div className="mx-auto flex max-w-5xl flex-col items-center">
-          <div className="flex flex-col items-center gap-6 text-center">
-            <div className="rounded-xl bg-background/30 p-4 shadow-sm backdrop-blur-sm">
-              {/* <Logo /> */}
-            </div>
-            <div>
-              <h1 className="mb-6 text-2xl font-bold tracking-tight text-pretty lg:text-5xl">
-                Explore the beauty of{" "}
-                <span className="text-primary">Bangladesh</span>
-              </h1>
-              <p className="mx-auto max-w-3xl text-muted-foreground lg:text-xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-                doloremque mollitia fugiat omnis! Porro facilis quo animi
-                consequatur. Explicabo.
-              </p>
-            </div>
-            
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+          
+          {/* Text Section */}
+          <div className="flex flex-col text-center lg:text-left items-center lg:items-start max-w-3xl">
+            <h1 className="mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-snug">
+              Travel in comfort, at your Convenience{" "}
+              <span className="text-primary">Bangladesh</span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
+              Want a comfortable ride home from work? Pathao cars have you covered!
+            </p>
+            <Button className="mt-6 w-full sm:w-auto">Take a Ride</Button>
           </div>
+
+          {/* Optional right-side image/illustration if you want */}
+          <div className="hidden lg:block">
+            <img src="/illustration.png" alt="Ride" className="w-full max-w-md" />
+          </div>
+
         </div>
       </div>
     </section>

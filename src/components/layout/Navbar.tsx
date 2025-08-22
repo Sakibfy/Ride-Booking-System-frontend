@@ -1,4 +1,4 @@
-// import Logo from "@/assets/images/ride.logo.png";
+import rideLogo from "@/assets/icons/ride.logo.png";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -103,9 +103,10 @@ export default function Navbar() {
           </Popover>
           {/* Main nav */}
           <div className="flex items-center gap-6">
-            <a href="#" className="text-primary hover:text-primary/90">
-              {/* <Logo /> */}
-            </a>
+           
+            <Link to={'/'}>
+              <img className="w-[130px]" src={rideLogo} alt="Ride Logo" /></Link>
+            
             {/* Navigation menu */}
             <NavigationMenu className="max-md:hidden">
               <NavigationMenuList className="gap-2">

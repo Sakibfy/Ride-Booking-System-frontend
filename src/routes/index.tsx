@@ -1,8 +1,8 @@
 import App from "@/App";
 // import DashboardLayout from "@/components/layout/DashboardLayout";
 // import About from "@/pages/About";
-// import Login from "@/pages/Login";
-// import Register from "@/pages/Register";
+import Login from "@/pages/Login";
+import Register from "@/pages/Register";
 // import Verify from "@/pages/Verify";
 // import { generateRoutes } from "@/utils/generateRoutes";
 import { createBrowserRouter } from "react-router";
@@ -11,10 +11,9 @@ import { createBrowserRouter } from "react-router";
 // import About from "../pages/About";
 import Homepage from "../pages/Homepage";
 import About from "../pages/About";
-import AdminLayout from "@/components/layout/AdminLayout";
-import { Component } from "react";
-import path from "path";
-import Analytics from "@/pages/Admin/analytics";
+// import AdminLayout from "@/components/layout/AdminLayout";
+
+// import Login from "@/pages/Login";
 
 // import { withAuth } from "@/utils/withAuth";
 // import Unauthorized from "@/pages/Unauthorized";
@@ -43,17 +42,17 @@ export const router = createBrowserRouter([
     ],
     
   },
-  {
-    Component: AdminLayout,
-    path: "/admin",
-    children: [
-      {
-      Component: Analytics,
-      path: "analytics"
-     }
-    ]
+  // {
+  //   Component: AdminLayout,
+  //   path: "/admin",
+  //   children: [
+  //     {
+  //     Component: Analytics,
+  //     path: "analytics"
+  //    }
+  //   ]
 
-  },
+  // },
 
   // {
   //   Component: withAuth(DashboardLayout, role.superAdmin as TRole),
@@ -71,14 +70,14 @@ export const router = createBrowserRouter([
   //     ...generateRoutes(userSidebarItems),
   //   ],
   // }
-  // {
-  //   Component: Login,
-  //   path: "/login",
-  // },
-  // {
-  //   Component: Register,
-  //   path: "/register",
-  // },
+  {
+    Component: Login,
+    path: "/login",
+  },
+  {
+    Component: Register,
+    path: "/register",
+  },
   // {
   //   Component: Verify,
   //   path: "/verify",
