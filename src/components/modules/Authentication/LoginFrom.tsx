@@ -23,13 +23,14 @@ export function LoginForm({
   const navigate = useNavigate();
   const form = useForm({
     //! For development only
-    
+   
   });
   const [login] = useLoginMutation();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const res = await login(data).unwrap();
 
+      console.log(res);
 
       if (res.success) {
         toast.success("Logged in successfully");
@@ -44,7 +45,7 @@ export function LoginForm({
 
       if (err.data.message === "User is not verified") {
         toast.error("Your account is not verified");
-        navigate("/verify", { state: data.email });
+        navigate("/", { state: data.email });
       }
     }
   };

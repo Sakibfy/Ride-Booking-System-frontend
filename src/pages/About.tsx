@@ -1,15 +1,22 @@
 export default function About() {
   return (
     <>
-      <div className="py-16 px-4 container mx-auto">
-        <h1> This is About component </h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, qui
-          eos. Architecto quisquam odit soluta fugit quos ab unde, voluptatem
-          eos necessitatibus nesciunt, in neque consequatur adipisci velit
-          accusantium illum.
-        </p>
-      </div>
+      <div className="hero bg-base-200 min-h-screen border">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+      className="max-w-7xl rounded-lg shadow-2xl"
+    />
+    <div>
+      <h1 className="text-5xl font-bold">Box Office News!</h1>
+      <p className="py-6">
+        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+        quasi. In deleniti eaque aut repudiandae et a id nisi.
+      </p>
+      <button className="btn btn-primary">Get Started</button>
+    </div>
+  </div>
+</div>
     </>
   );
 }

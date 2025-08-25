@@ -27,12 +27,6 @@ export default function HeroSection() {
             </p>
             <Button className="mt-6 w-full sm:w-auto">Take a Ride</Button>
           </div>
-
-          {/* Optional right-side image/illustration if you want */}
-          <div className="hidden lg:block">
-            <img src="/illustration.png" alt="Ride" className="w-full max-w-md" />
-          </div>
-
         </div>
       </div>
     </section>
