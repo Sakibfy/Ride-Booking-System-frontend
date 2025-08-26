@@ -1,4 +1,4 @@
-// import Logo from "@/assets/images/ride.logo.png";
+import logo from "@/assets/images/ride.logo.png";
 
 export default function Footer() {
   return (
@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              {/* <Logo></Logo> */}
+            <img src={logo} alt="Ride Logo" className="h-10 w-auto" />
             </div>
 
             <p className="mt-4 max-w-xs text-muted-foreground">

@@ -1,30 +1,17 @@
 import App from "@/App";
-// import DashboardLayout from "@/components/layout/DashboardLayout";
-// import About from "@/pages/About";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
-// import Verify from "@/pages/Verify";
-// import { generateRoutes } from "@/utils/generateRoutes";
-import { createBrowserRouter } from "react-router";
-// import { adminSidebarItems } from "./adminSidebarItems";
-// import { userSidebarItems } from "./userSidebarItems";
-// import About from "../pages/About";
+import { createBrowserRouter, Navigate } from "react-router";
 import Homepage from "../pages/Homepage";
 import About from "../pages/About";
-// import AdminLayout from "@/components/layout/AdminLayout";
-
-// import Login from "@/pages/Login";
-
-// import { withAuth } from "@/utils/withAuth";
-// import Unauthorized from "@/pages/Unauthorized";
-// import { role } from "@/constants/role";
-// import { TRole } from "@/types";
-// import Tours from "@/pages/Tours";
-// import TourDetails from "@/pages/TourDetails";
-// import Booking from "@/pages/Booking";
-// import Homepage from "@/pages/Homepage";
-// import Success from "@/pages/Payment/Success";
-// import Fail from "@/pages/Payment/Fail";
+import type { TRole } from "@/types";
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import { role } from "@/constants/rode";
+import { adminSidebarItems } from "./adminSidebarItems";
+import { withAuth } from "@/utils/withAuth";
+import { generateRoutes } from "@/utils/generateRoutes";
+import { riderSidebarItems } from "./riderSidebarItems";
+import { driverSidebarItems } from "./driverSidebarItemes";
 
 export const router = createBrowserRouter([
   {
@@ -42,34 +29,33 @@ export const router = createBrowserRouter([
     ],
     
   },
-  // {
-  //   Component: AdminLayout,
-  //   path: "/admin",
-  //   children: [
-  //     {
-  //     Component: Analytics,
-  //     path: "analytics"
-  //    }
-  //   ]
+ 
+  {
+    Component:DashboardLayout,
+    path: "/admin",
+    children: [
+      { index: true, element: <Navigate to="/admin/analytics" /> },
+      ...generateRoutes(adminSidebarItems),
+    ],
+  },
+  {
+    Component: withAuth(DashboardLayout, role.rider as TRole),
+    path: "/rider",
+    children: [
+      { index: true, element: <Navigate to="/rider/ridehistory" /> },
+      ...generateRoutes(riderSidebarItems),
+    ],
+  },
+  {
+    Component: withAuth(DashboardLayout, role.driver as TRole),
+    path: "/diver",
+    children: [
+      { index: true, element: <Navigate to="/driver/EarningsDashboard" /> },
+      ...generateRoutes(driverSidebarItems),
+    ],
+  },
 
-  // },
-
-  // {
-  //   Component: withAuth(DashboardLayout, role.superAdmin as TRole),
-  //   path: "/admin",
-  //   children: [
-  //     { index: true, element: <Navigate to="/admin/analytics" /> },
-  //     ...generateRoutes(adminSidebarItems),
-  //   ],
-  // },
-  // {
-  //   Component: withAuth(DashboardLayout, role.user as TRole),
-  //   path: "/user",
-  //   children: [
-  //     { index: true, element: <Navigate to="/user/bookings" /> },
-  //     ...generateRoutes(userSidebarItems),
-  //   ],
-  // }
+  // Auth
   {
     Component: Login,
     path: "/login",
@@ -78,20 +64,4 @@ export const router = createBrowserRouter([
     Component: Register,
     path: "/register",
   },
-  // {
-  //   Component: Verify,
-  //   path: "/verify",
-  // },
-  // {
-  //   Component: Unauthorized,
-  //   path: "/unauthorized",
-  // },
-  // {
-  //   Component: Success,
-  //   path: "/payment/success",
-  // },
-  // {
-  //   Component: Fail,
-  //   path: "/payment/fail",
-  // },
 ]);

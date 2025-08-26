@@ -1,14 +1,15 @@
-import Bookings from "@/pages/User/Bookings";
-import { ISidebarItem } from "@/types";
+import RideHistory from "@/pages/Rider/RideHistory";
+import type { ISidebarItem } from "@/types";
 
-export const userSidebarItems: ISidebarItem[] = [
+
+export const riderSidebarItems: ISidebarItem[] = [
   {
-    title: "History",
+    title: "Ride History",
     items: [
       {
-        title: "Bookings",
-        url: "/user/bookings",
-        component: Bookings,
+        title: "ride",
+        url: "/rider/ridehistory",
+        component: RideHistory,
       },
     ],
   },

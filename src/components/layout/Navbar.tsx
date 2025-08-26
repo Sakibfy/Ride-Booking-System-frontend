@@ -1,4 +1,4 @@
-import rideLogo from "@/assets/icons/ride.logo.png";
+import rideLogo from "@/assets/images/ride.logo.png";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -32,6 +32,7 @@ const navigationLinks = [
   { href: "/Contact", label: "Contact", role: "PUBLIC" },
   { href: "/FAQ", label: "FAQ", role: "PUBLIC" },
   { href: "/superAdmin", label: "Dashboard", role: role.superAdmin },
+  { href: "/Admin", label: "Dashboard", role: role.admin },
   { href: "/rider", label: "Dashboard", role: role.rider },
   { href: "/driver", label: "Dashboard", role: role.driver },
 ];
@@ -42,7 +43,8 @@ export default function Navbar() {
   const dispatch = useAppDispatch();
 
 
-  console.log(data);
+  // console.log("Email:", data?.data?.email);
+  console.log("Role:", data?.data?.role);
 
   const handleLogout = async () => {
     await logout(undefined);

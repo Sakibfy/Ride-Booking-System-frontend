@@ -1,6 +1,6 @@
 import registerimg from "@/assets/images/register.car..jpg";
 import { Link } from "react-router";
-import Logo from "@/assets/icons/ride.logo.png";
+import Logo from "@/assets/images/ride.logo.png";
 import { RegisterForm } from "@/components/modules/Authentication/RegisterFrom";
 
 

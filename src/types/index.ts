@@ -1,7 +1,5 @@
-import { ComponentType } from "react";
+import type { ComponentType } from "react";
 
-export type { ISendOtp, IVerifyOtp, ILogin } from "./auth.type";
-export type { ITourPackage } from "./tour.type";
 
 export interface IResponse<T> {
   statusCode: number;
@@ -19,7 +17,7 @@ export interface ISidebarItem {
   }[];
 }
 
-export type TRole = "SUPER_ADMIN" | "ADMIN" | "USER";
+export type TRole = "SUPER_ADMIN" | "ADMIN" | "RIDER" | "DRIVER";
 
 type ZodIssue = {
   code: string;
