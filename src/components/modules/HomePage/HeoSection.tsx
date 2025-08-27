@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router";
 
 export default function HeroSection() {
   return (
@@ -17,15 +18,18 @@ export default function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
           
           {/* Text Section */}
-          <div className="flex flex-col text-center lg:text-left items-center lg:items-start max-w-3xl">
-            <h1 className="mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-snug">
+          <div className="flex  lg:ml-10 lg:mb-20 flex-col text-center lg:text-left items-center lg:items-start max-w-3xl">
+            <Link to={'/ride'}>
+              <Button className=" hover:bg-[#acd623] font-bold curso
+         r-pointer sm:w-auto bg-[#acd623] text-">Take a Ride</Button></Link>
+            <h1 className="mb-6 text-xl sm:text-4xl md:text-5xl lg:text-4xl font-bold tracking-tight leading-snug">
               Travel in comfort, at your Convenience{" "}
               <span className="text-primary">Bangladesh</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
               Want a comfortable ride home from work? Pathao cars have you covered!
             </p>
-            <Button className="mt-6 w-full sm:w-auto">Take a Ride</Button>
+            
           </div>
         </div>
       </div>

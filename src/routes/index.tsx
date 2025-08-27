@@ -12,6 +12,7 @@ import { withAuth } from "@/utils/withAuth";
 import { generateRoutes } from "@/utils/generateRoutes";
 import { riderSidebarItems } from "./riderSidebarItems";
 import { driverSidebarItems } from "./driverSidebarItemes";
+import Ride from "@/pages/Ride";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         Component: About,
         path: "about",
+      },
+      {
+        Component: Ride,
+        path: "ride",
       },
     ],
     

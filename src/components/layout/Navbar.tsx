@@ -43,7 +43,7 @@ export default function Navbar() {
   const dispatch = useAppDispatch();
 
 
-  // console.log("Email:", data?.data?.email);
+  console.log("Email:", data?.data?.email);
   console.log("Role:", data?.data?.role);
 
   const handleLogout = async () => {
@@ -53,7 +53,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="border-b z-40">
+    <header className="border-b z-40 w-11/12 mx-auto">
       <div className="container mx-auto px-4 flex h-16 items-center justify-between gap-4">
         {/* Left side */}
         <div className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export default function Navbar() {
           <div className="flex items-center gap-6">
            
             <Link to={'/'}>
-              <img className="w-[130px]" src={rideLogo} alt="Ride Logo" /></Link>
+              <img className="w-[80px]" src={rideLogo} alt="Ride Logo" /></Link>
             
             {/* Navigation menu */}
             <NavigationMenu className="max-md:hidden">

@@ -13,7 +13,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ReduxProvider store={store}>
       <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+        <div className="">
         <RouterProvider router={router} />
+        </div>
         <Toaster richColors />
       </ThemeProvider>
     </ReduxProvider>

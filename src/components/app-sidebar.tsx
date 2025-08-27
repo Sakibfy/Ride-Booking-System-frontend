@@ -28,9 +28,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       
   return (
     <Sidebar {...props}>
-      <SidebarHeader className="items-center bg-red-300">
+      <SidebarHeader className="items-center border-b">
         <Link to="/">
-        <img src={logo} alt="Ride Logo" className="h-10 w-auto" />
+        <img src={logo} alt="Ride Logo" className="h-20 w-auto" />
         </Link>
       </SidebarHeader>
       <SidebarContent>
