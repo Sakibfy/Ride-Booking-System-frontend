@@ -7,7 +7,7 @@ export const riderSidebarItems: ISidebarItem[] = [
     title: "Ride History",
     items: [
       {
-        title: "ride",
+        title: "Ride",
         url: "/rider/ridehistory",
         component: RideHistory,
       },
