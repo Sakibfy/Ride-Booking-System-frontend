@@ -24,13 +24,10 @@ import React from "react";
 import { toast } from "sonner";
 
 
-// Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home", role: "PUBLIC" },
   { href: "/about", label: "About Us ", role: "PUBLIC" },
   { href: "/Features", label: "Features", role: "PUBLIC" },
-  { href: "/Contact", label: "Contact", role: "PUBLIC" },
-  { href: "/FAQ", label: "FAQ", role: "PUBLIC" },
   { href: "/superAdmin", label: "Dashboard", role: role.superAdmin },
   { href: "/Admin", label: "Dashboard", role: role.admin },
   { href: "/rider", label: "Dashboard", role: role.rider },

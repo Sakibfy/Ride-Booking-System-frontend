@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
+
 import { Link } from "react-router";
 
 export default function HeroSection() {
+
+
   return (
     <section className="relative overflow-hidden py-20 md:py-28 lg:py-32 min-h-screen flex items-center">
       {/* Background */}

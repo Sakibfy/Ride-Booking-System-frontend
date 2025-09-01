@@ -19,18 +19,15 @@ import { useUserInfoQuery } from "@/redux/features/auth/auth.api";
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: userData } = useUserInfoQuery(undefined);
   
-  console.log(userData);
   const data = {
     navMain: getSidebarItems(userData?.data?.role),
   };
-  console.log(data);
-
-      
+  
   return (
     <Sidebar {...props}>
       <SidebarHeader className="items-center border-b">
         <Link to="/">
-        <img src={logo} alt="Ride Logo" className="h-20 w-auto" />
+        <img src={logo} alt="Ride Logo" className="h-10 w-auto" />
         </Link>
       </SidebarHeader>
       <SidebarContent>
