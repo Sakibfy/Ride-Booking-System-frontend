@@ -16,12 +16,16 @@ import { useNavigate } from "react-router";
 import { toast } from "sonner";
 
 // Validation Schema
+// Validation Schema
 const registerSchema = z.object({
   name: z.string().min(3, { message: "Name is too short" }).max(50),
   email: z.string().email({ message: "Invalid email address" }),
   password: z.string().min(8, { message: "Password is too short" }),
-  role: z.enum(["rider", "driver"], { required_error: "Role is required" }),
+  role: z.enum(["rider", "driver"]).refine((val) => !!val, {
+    message: "Role is required",
+  }),
 });
+
 
 export function RegisterForm() {
   const [register] = useRegisterMutation();

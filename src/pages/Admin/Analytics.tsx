@@ -1,6 +1,7 @@
 import { useIncomingRequestsQuery } from "@/redux/features/auth/ride.api";
 
 
+
 export default function Analytics() {
   const { data, isLoading, isError } = useIncomingRequestsQuery(undefined);
   if (isLoading) {
@@ -14,7 +15,6 @@ export default function Analytics() {
   if (isError) {
     return (
       <div className="flex items-center justify-center h-64 text-red-500">
-        Error: {error instanceof Error ? error.message : "Failed to load rides"}
       </div>
     );
   }
@@ -33,7 +33,7 @@ export default function Analytics() {
 
       <div className="overflow-x-auto shadow rounded-lg">
         <table className="w-full border-collapse">
-          <thead className="bg-gray-100">
+          <thead className="bg-gray-400">
             <tr>
               <th className="p-3 border text-left">Ride ID</th>
               <th className="p-3 border text-left">Driver</th>
@@ -46,7 +46,7 @@ export default function Analytics() {
             {data?.data?.map((ride: any, index: number) => (
               <tr
                 key={index}
-                className="hover:bg-gray-50 transition-colors"
+                className="hover:bg-gray-300 hover:text-black transition-colors"
               >
                 <td className="p-3 border">{ride._id}</td>
                 <td className="p-3 border">{ride.driver?.name || "N/A"}</td>

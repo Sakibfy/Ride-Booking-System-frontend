@@ -41,7 +41,6 @@ export default function UserManagement() {
         <table className="w-full border-collapse border border-gray-300">
           <thead className="bg-gray-100">
             <tr>
-              <th className="border border-gray-300 p-2">#</th>
               <th className="border border-gray-300 p-2">Name</th>
               <th className="border border-gray-300 p-2">Email</th>
               <th className="border border-gray-300 p-2">Role</th>
@@ -54,9 +53,8 @@ export default function UserManagement() {
           </thead>
           <tbody>
             {filteredUsers.length > 0 ? (
-              filteredUsers.map((user: any, index: number) => (
+              filteredUsers.map((user: any, ) => (
                 <tr key={user._id} className="text-center">
-                  <td className="border border-gray-300 p-2">{index + 1}</td>
                   <td className="border border-gray-300 p-2">{user.name}</td>
                   <td className="border border-gray-300 p-2">{user.email}</td>
                   <td className="border border-gray-300 p-2">{user.role}</td>
